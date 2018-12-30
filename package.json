@@ -1,0 +1,35 @@
+{
+  "name": "apollo2sub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node --presets env app.js",
+    "test": "mocha --require babel-core/register ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffML/Apollo2Sub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffML/Apollo2Sub/issues"
+  },
+  "homepage": "https://github.com/JeffML/Apollo2Sub#readme",
+  "dependencies": {
+    "apollo-link": "^1.2.6",
+    "apollo-link-http": "^1.5.9",
+    "apollo-link-ws": "^1.0.12",
+    "apollo-server-express": "^2.3.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "graphql": "^14.0.2",
+    "subscriptions-transport-ws": "^0.9.15"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
