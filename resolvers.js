@@ -3,7 +3,7 @@ const pubsub = new PubSub();
 
 const TOPIC = 'infoTopic';
 
-const infos = ['info1', 'info2', 'info3']
+const infos = ['info1', 'info2', 'info3', 'done']
 
 const publish = () => {
     setTimeout( () =>

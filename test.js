@@ -4,18 +4,18 @@ import fetch, { subscribe } from './fetch';
 
 chai.should();
 
-describe('subscribe, then go', function() {
+describe('subscribe, then go', function () {
     this.timeout(5000);
 
     const handlers = {
-      next: (data) => {
-        console.log(`received data:`, data);
-        if (data.data.info === 'info3') {
-            console.log('exiting...')
-            process.exit(0);
-        }
-      },
-      error: error => console.error(`received error ${error}`),
+        next: (data) => {
+            console.log(`received data:`, data);
+            if (data.data.info === 'done') {
+                console.log('exiting...')
+                process.exit(0);
+            }
+        },
+        error: error => console.error(`received error ${error}`),
     };
 
     // get the subscriber ready...
@@ -24,9 +24,9 @@ describe('subscribe, then go', function() {
           info
         }`;
         subscribe(query, handlers);
-      });
-    
-      it('go', async () => {
+    });
+
+    it('go', async () => {
         const query = `query {
             go
         }`;
@@ -35,5 +35,5 @@ describe('subscribe, then go', function() {
         res.should.have.property('go')
         res.go.should.equal('going')
     })
-    
+
 })
