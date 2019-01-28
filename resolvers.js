@@ -1,23 +1,29 @@
-import { PubSub } from 'apollo-server-express';
-const pubsub = new PubSub();
+async function func2(_, {arg1}) {
+  console.log({arg1})
+  return 1;
+}
 
-const TOPIC = 'infoTopic';
+async function func1(_, {arg1, arg2}) {
+  console.log({arg1, arg2})
+  return 2;
+}
 
-const infos = ['info1', 'info2', 'info3', 'done']
+async function func2Dump(...args) {
+  console.log(args)
+  return 1;
+}
 
-const publish = () => {
-    setTimeout( () =>
-    infos.forEach(info => pubsub.publish(TOPIC, {info})), 1000)
+async function func1Dump(...args) {
+  console.log(args)
+  return 2;
 }
 
 export default {
-    Query: {
-      go: () => { publish(); return 'going'}
-    },
-  
-    Subscription: {
-      info: {
-        subscribe: () => pubsub.asyncIterator([TOPIC]),
+    Mutation: {
+      func2: (arg1) => func2(arg1),
+      func1: (arg1, arg2) => func1(arg1, arg2),
+
+      func2Dump: (arg1) => func2Dump(arg1),
+      func1Dump: (arg1, arg2) => func1Dump(arg1, arg2),
       },
-    },
   };
