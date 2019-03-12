@@ -18,14 +18,14 @@
   },
   "homepage": "https://github.com/JeffML/Apollo2Sub#readme",
   "dependencies": {
-    "apollo-link": "^1.2.6",
-    "apollo-link-http": "^1.5.9",
-    "apollo-link-ws": "^1.0.12",
-    "apollo-server-express": "^2.3.1",
+    "apollo-link": "^1.2.9",
+    "apollo-link-http": "^1.5.12",
+    "apollo-link-ws": "^1.0.15",
+    "apollo-server-express": "^2.4.8",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "graphql": "^14.0.2",
-    "subscriptions-transport-ws": "^0.9.15"
+    "graphql": "^14.1.1",
+    "subscriptions-transport-ws": "^0.9.16"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
