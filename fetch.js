@@ -10,9 +10,8 @@ import ws from 'ws';
 import { HttpLink } from 'apollo-link-http';
 import gql from 'graphql-tag';
 
-
-const uri = 'http://localhost:3031/graphql';
-const wsUri = 'ws://localhost:3031/graphql';
+const uri = `http://localhost:3031/graphql`;
+const wsUri = `ws://localhost:3031/graphql`;
 
 const link = new HttpLink({ uri, fetch });
 const wsClient = new SubscriptionClient(wsUri, { reconnect: true }, ws);
@@ -23,6 +22,7 @@ const doQuery = (query) => {
     query: gql`${query}`,
   };
 
+  console.log(`$query is ${query}`)
   return makePromise(execute(link, operation));
 };
 
@@ -32,8 +32,7 @@ const subscribe = (query, handlers) => {
   };
 
   return execute(wsLink, operation).subscribe(handlers);
-
-  // return execute(link, operation).subscribe(handlers);
 };
+
 export default doQuery;
 export { subscribe };

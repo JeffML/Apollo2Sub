@@ -4,15 +4,10 @@ import resolvers from './resolvers';
 const typeDefs = [
   `
   type Query {
-    arg2: String
+    go: String!
   }
-
-  type Mutation {
-    func2(arg1: String!): Int!,
-    func1(arg1: String!, arg2: Int) : Int!
-
-    func2Dump(arg1: String!): Int!,
-    func1Dump(arg1: String!, arg2: Int) : Int!
+  type Subscription {
+    info: String!
   }
 `,
 ];
